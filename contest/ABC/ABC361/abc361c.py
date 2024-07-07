@@ -1,19 +1,16 @@
 """
-結果は不正解。下のコード間違ってる。
+結果は不正解。
+
+＜メモ＞
+・インデックスの範囲を決定するためにx=n-k-1
+・昇順のリストで、なぜa[i+x]-a[i]の範囲の全探索で、答えの最小値の扱いになるかは理解できなかった。
+
 """
 
-import itertools
-
-N, K = map(int, input().split())
-A = list(map(int, input().split()))
-
-combinations = list(itertools.combinations(A, K))
-min_list = "inf"
-
-
-for i in combinations:
-    result = max(i) - min(i)
-    if result < min_list:
-        min_list = result
-        
-print(result)
+n,k=map(int,input().split())
+a=sorted(map(int,input().split()))
+x=n-k-1
+ans=10**20
+for i in range(k+1):
+    ans=min(ans,a[i+x]-a[i])
+print(ans)
