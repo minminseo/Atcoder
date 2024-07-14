@@ -5,5 +5,3 @@ for i in range(1, N*2+2):
         print(1, end="")
     else:
         print(0, end="")
-        
-        
