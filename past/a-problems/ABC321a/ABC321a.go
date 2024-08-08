@@ -8,7 +8,7 @@ func main() {
 	check := true
 
 	for i := 0; i < len(N)-1; i++ {
-		if N[i] < N[i+1] {
+		if N[i] <= N[i+1] {
 			check = false
 		}
 	}
