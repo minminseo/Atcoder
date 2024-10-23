@@ -1,24 +1,14 @@
 package main
 
-import (
-	"bufio"
-	"fmt"
-	"os"
-)
+import "fmt"
 
 func main() {
-	r := bufio.NewReader(os.Stdin)
-	w := bufio.NewWriter(os.Stdout)
-	defer w.Flush()
+	var N int
+	fmt.Scan(&N)
 
-	var n int
-	fmt.Fscan(r, &n)
-
-	if n < 10 {
-		fmt.Fprintf(w, "AGC00%d\n", n)
-	} else if n < 42 {
-		fmt.Fprintf(w, "AGC0%d\n", n)
+	if N >= 42 {
+		fmt.Printf("AGC%.3d", N+1)
 	} else {
-		fmt.Fprintf(w, "AGC0%d\n", n+1)
+		fmt.Printf("AGC%.3d", N)
 	}
 }
