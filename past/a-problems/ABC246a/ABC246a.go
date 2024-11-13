@@ -1,0 +1,27 @@
+package main
+
+import "fmt"
+
+func main() {
+	var x1, x2, x3, y1, y2, y3 int
+	fmt.Scan(&x1, &y1, &x2, &y2, &x3, &y3)
+
+	var x4, y4 int
+	if x1 == x2 {
+		x4 = x3
+	} else if x2 == x3 {
+		x4 = x1
+	} else {
+		x4 = x2
+	}
+
+	if y1 == y2 {
+		y4 = y3
+	} else if y2 == y3 {
+		y4 = y1
+	} else {
+		y4 = y2
+	}
+
+	fmt.Println(x4, y4)
+}
