@@ -22,8 +22,6 @@ func main() {
 		if Map[inputs[i]] == "" {
 			Map[inputs[i]] = c
 			count = count + 1
-		} else {
-			count = count
 		}
 	}
 
