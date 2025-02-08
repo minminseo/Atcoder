@@ -1,14 +1,27 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
-	var A, B int
-	fmt.Scan(&A, &B)
-	for c := 0; c < 256; c++ {
-		if c == (A ^ B) {
-			fmt.Println(c)
-			break
+	var n int
+	fmt.Scan(&n)
+	var h, hi, h2, h2i int
+	for i := 0; i < n; i++ {
+		var v int
+		fmt.Scan(&v)
+		if h < v {
+			h2 = h
+			h2i = hi
+			h = v
+			hi = i
+			continue
+		}
+		if h2 < v {
+			h2 = v
+			h2i = i
 		}
 	}
+	fmt.Print(h2i + 1)
 }
