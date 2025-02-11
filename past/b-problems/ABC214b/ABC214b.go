@@ -1,16 +1,22 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
-	var n int
-	fmt.Scan(&n)
+	var s, t int
+	fmt.Scan(&s, &t)
 
-	if n <= 125 {
-		fmt.Println(4)
-	} else if n <= 211 {
-		fmt.Println(6)
-	} else if n <= 214 {
-		fmt.Println(8)
+	cnt := 0
+	for i := 0; i <= s; i++ {
+		for j := 0; i+j <= s; j++ {
+			for k := 0; i+j+k <= s; k++ {
+				if i*j*k <= t {
+					cnt++
+				}
+			}
+		}
 	}
+	fmt.Println(cnt)
 }
