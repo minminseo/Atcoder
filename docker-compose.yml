@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  atcoder:
+    build: .
+    container_name: atcoder_env
+    volumes:
+      - .:/atcoder:cached
+    working_dir: /atcoder
+    stdin_open: true
+    tty: true
+    # environment:
+    #  - BASH_ENV=~/.bashrc  # 毎回 ~/.bashrc を読み込むようにする # Makefileで読み込むように変更
+    # restart: unless-stopped  # コンテナがクラッシュしたら自動再起動
