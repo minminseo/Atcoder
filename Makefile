@@ -2,7 +2,7 @@
 CONTAINER_NAME=atcoder_env
 
 # デフォルトで `all` を実行（コンテナ起動＋環境セットアップ）
-all: up setup-container
+all: up setup
 
 # コンテナを起動（Docker Compose V1/V2 両対応）
 up:

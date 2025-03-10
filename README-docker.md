@@ -11,7 +11,7 @@ docker-compose up -d
 ### コンテナに入る
 `docker exec -it atcoder_env /bin/bash`
 
-## エイリアスの設定
+## エイリアスの設定(Makefileでもいい)
 ### エイリアスを設定する場合
 #### atcoderと打ってコンテナ入る
 `echo 'alias atcoder="docker exec -it atcoder_env /bin/bash"' >> ~/.zshrc`
@@ -28,46 +28,8 @@ docker-compose up -d
 ## Atcoder環境しばらく使わないなら、不要なコンテナやネットワーク設定、データ保存領域（ボリューム）、イメージを削除
 `docker-compose down --rmi all --volumes`
 
-# Atcoderでの使い方（コンテナ内でのCLI使い方）
-```bash:
-# AtCoderのログイン
-acc login
-
-# AtCoderのコンテストを取得
-acc new abc300
-cd abc300
-
-# 問題をダウンロード
-oj d https://atcoder.jp/contests/abc300/tasks/abc300_a
-
-# 解答を提出
-oj s main.py
-```
-
-# その他(コンテナの起動停止状態の確認)
-エイリアス（dpsコマンド）を追加
-`echo 'alias dps="docker ps --format '\''table {{.Names}}\t{{.Status}}\t{{.Ports}}'\''"' >> ~/.zshrc`
-関数(atcoder-status)を追加
-```zsh
-cat <<EOF >> ~/.zshrc
-
-# AtCoderのコンテナが動いているか確認する関数
-function atcoder-status() {
-    if docker ps | grep -q "atcoder_env"; then
-        echo "✅ Atcoder環境は起動中！"
-    else
-        echo "❌ Atcoder環境は停止中。"
-    fi
-}
-EOF
-```
-設定を反映
-`source ~/.zshrc`
-
-現在動作しているDockerコンテナ一覧を表示
-`dps`
-
-atcoder-status → atcoder_env が動いているか確認
-`atcoder-status`
-
-alias atcoder="docker exec -it atcoder_env /bin/bash"を試す。！！！！
+# Makefile使う場合
+イメージをビルドしコンテナを起動 + コンテナ内のBashで使う用のエイリアスの設定
+`make up`
+コンテナに入る。
+`make atcoder`
