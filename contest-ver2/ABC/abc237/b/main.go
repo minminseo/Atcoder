@@ -9,9 +9,10 @@ import (
 )
 
 func main() {
-	sc := bufio.NewScanner(os.Stdin)
-	sc.Scan()
-	parts := strings.Fields(sc.Text())
+	reader := bufio.NewReader(os.Stdin)
+
+	line, _ := reader.ReadString('\n')
+	parts := strings.Fields(line)
 	H, _ := strconv.Atoi(parts[0])
 	W, _ := strconv.Atoi(parts[1])
 
@@ -22,8 +23,8 @@ func main() {
 	}
 
 	for i := 0; i < H; i++ {
-		sc.Scan()
-		row := strings.Fields(sc.Text())
+		line, _ := reader.ReadString('\n')
+		row := strings.Fields(line)
 		A[i] = make([]int, W)
 		for j := 0; j < W; j++ {
 			val, _ := strconv.Atoi(row[j])
@@ -32,8 +33,8 @@ func main() {
 		}
 	}
 
-	for i := 0; i < W; i++ {
-		for j := 0; j < H; j++ { // 転置行列の出力のためにHとWを逆にして出力する
+	for i := 0; i < W; i++ { // 転置行列の出力のためにHとWを逆にして出力する
+		for j := 0; j < H; j++ {
 			if j > 0 {
 				fmt.Print(" ")
 			}
