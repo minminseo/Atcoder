@@ -25,7 +25,7 @@ func main() {
 	seenLeft := make(map[int]bool)
 	count := 0
 	for i := 0; i < N; i++ {
-		if !seenLeft[slice[i]] {
+		if !seenLeft[slice[i]] { // スライスAの各数値をキーに持ち。そのキーが存在するかどうかかを判定。
 			seenLeft[slice[i]] = true
 			count++
 		}
@@ -45,7 +45,7 @@ func main() {
 
 	maxSum := 0
 	for i := 0; i < N-1; i++ {
-		sum := left[i] + right[i+1]
+		sum := left[i] + right[i+1] // 左側の要素i個目以下＋右側の要素i+1個目以上を足す
 		if sum > maxSum {
 			maxSum = sum
 		}
