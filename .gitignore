@@ -2,7 +2,7 @@
 sandbox
 mathal
 docker-compose.yml
-work
+work/
 Dockerfile
 Makefile
 README-atcoder-cli.md
