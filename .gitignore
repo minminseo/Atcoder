@@ -1,6 +1,7 @@
 .env
 sandbox
 mathal
+mathal/
 docker-compose.yml
 work/
 Dockerfile
@@ -8,3 +9,5 @@ Makefile
 README-atcoder-cli.md
 README-docker.md
 .dockerignore
+.vscode/
+README-cpp.md
